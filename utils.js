@@ -52,8 +52,10 @@ function get(url, jar, qs, options) {
 }
 
 function post(url, jar, form, options) {
+  var headers = getHeaders(url, options);
+  headers['sec-fetch-site'] = 'same-origin';
   var op = {
-    headers: getHeaders(url, options),
+    headers: headers,
     timeout: 60000,
     url: url,
     method: "POST",
