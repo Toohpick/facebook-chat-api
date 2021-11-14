@@ -54,6 +54,8 @@ function get(url, jar, qs, options) {
 function post(url, jar, form, options) {
   var headers = getHeaders(url, options);
   headers['sec-fetch-site'] = 'same-origin';
+  headers['sec-fetch-dest'] = '';
+  headers['sec-fetch-mode'] = 'cors';
   var op = {
     headers: headers,
     timeout: 60000,
